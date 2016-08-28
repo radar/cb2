@@ -8,9 +8,9 @@ class CB2::Percentage < CB2::RollingWindow
 
   def should_open?(error_count)
     # do not open until we have a reasonable number of requests
-    return false if @current_count < 5
+    return false if self.count < 5
 
-    error_perc = error_count * 100 / @current_count.to_f
+    error_perc = error_count * 100 / self.count.to_f
     return error_perc >= threshold
   end
 end
