@@ -24,7 +24,7 @@ describe "Acceptance" do
     # starting with a fresh closed circuit
     Timecop.freeze(t) do
       9.times { pass! }
-      fail!
+      2.times { fail! }
       assert breaker.open?
       assert_raises(CB2::BreakerOpen) { fail! }
     end
